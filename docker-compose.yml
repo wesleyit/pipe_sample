@@ -23,3 +23,5 @@ jenkins:
     - '50000:50000'
   volumes:
     - './storage/jenkins:/var/jenkins_home'
+  links:
+    - gitlab:gitlab.local
