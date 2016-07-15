@@ -19,7 +19,7 @@ node('slave_bash') {
     ls -la
     uname -a
     date
-    ls /etc
+    ps -ef
   '''
 
   // Aqui a versão simples.
