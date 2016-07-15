@@ -1,12 +1,9 @@
 version: "2"
-
 services:
-  gitlab:
+  gitlab.local:
     image: 'gitlab/gitlab-ce:8.9.6-ce.0'
     restart: always
     hostname: 'gitlab.local'
-    networks:
-      - super-ci
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://gitlab.local'
@@ -18,21 +15,12 @@ services:
       - './storage/gitlab/config:/etc/gitlab'
       - './storage/gitlab/logs:/var/log/gitlab'
       - './storage/gitlab/data:/var/opt/gitlab'
-
-  jenkins:
+  jenkins.local:
     image: 'jenkins:2.3'
     restart: always
     hostname: 'jenkins.local'
-    networks:
-      - super-ci
     ports:
       - '8080:8080'
       - '50000:50000'
     volumes:
       - './storage/jenkins:/var/jenkins_home'
-    links:
-      - gitlab:gitlab.local
-
-networks:
-  super-ci:
-    driver: bridge
