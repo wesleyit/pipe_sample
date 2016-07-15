@@ -23,7 +23,7 @@ node('slave_bash') {
 
   // Aqui a versão simples.
   stage 'Do Something More'
-  sh 'tar -zcvf teste.tgz . --exclude=".git" --exclude="storage" --exclude="*.tgz"'
+  sh 'tar -zcvf teste.tgz docker-compose.yml slave.jar start_jenkins_slave.sh'
 
   // O comando archive serve para arquivar artefatos.
   // Depois de gerar os pacotes, o archive se encarrega
