@@ -1,0 +1,25 @@
+gitlab:
+  image: 'gitlab/gitlab-ce:8.9.6-ce.0'
+  restart: always
+  hostname: 'gitlab.local'
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'http://gitlab.local'
+  ports:
+    - '80:80'
+    - '443:443'
+    - '2222:22'
+  volumes:
+    - './storage/gitlab/config:/etc/gitlab'
+    - './storage/gitlab/logs:/var/log/gitlab'
+    - './storage/gitlab/data:/var/opt/gitlab'
+
+jenkins:
+  image: 'jenkins:2.3'
+  restart: always
+  hostname: 'jenkins.local'
+  ports:
+    - '8080:8080'
+    - '50000:50000'
+  volumes:
+    - './storage/jenkins:/var/jenkins_home'
