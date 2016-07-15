@@ -23,7 +23,7 @@ node('slave_bash') {
 
   // Aqui a versão simples.
   stage 'Do Something More'
-  sh 'tar -zcvf release_0.1.tgz .'
+  sh 'tar -zcvf teste.tgz . --exclude=".git" --exclude="storage" --exclude="*.tgz"'
 
   // O comando archive serve para arquivar artefatos.
   // Depois de gerar os pacotes, o archive se encarrega
