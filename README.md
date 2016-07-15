@@ -1,4 +1,4 @@
-# Youse Mobile Pipelines
+# Mobile Pipelines
 
 Este projeto é um esqueleto para estudo de Integração Contínua.
 É composto basicamente por um arquivo de configuração do
